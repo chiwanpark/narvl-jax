@@ -1,0 +1,42 @@
+[project]
+name = "narvl-jax"
+version = "0.1.0"
+description = "Non-autoregressive Vision-Language Model based on JAX"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "loguru>=0.7.3",
+]
+
+[project.scripts]
+narvl-jax = "narvl:main"
+
+[build-system]
+requires = ["uv_build>=0.11.28,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "narvl"
+module-root = ""
+
+[dependency-groups]
+dev = [
+    "poethepoet>=0.48.0",
+    "pytest>=9.1.1",
+    "ruff>=0.15.21",
+    "ty>=0.0.59",
+]
+
+[tool.poe.tasks]
+lint = "ruff check ."
+format = "ruff format ."
+test = "pytest"
+format-check = "ruff format --check ."
+typecheck = "ty check"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "C", "B", "T20"]
+ignore = ["E501"]

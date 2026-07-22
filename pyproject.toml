@@ -5,7 +5,11 @@ description = "Non-autoregressive Vision-Language Model based on JAX"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "array-record>=0.8.3",
     "loguru>=0.7.3",
+    "msgpack>=1.2.1",
+    "pillow>=12.3.0",
+    "typer>=0.26.8",
 ]
 
 [project.scripts]
